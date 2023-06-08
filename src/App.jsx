@@ -6,7 +6,7 @@ import Contact from './pages/Contact'
 function App() {
   return (
     <Router>
-      <main>
+      <main className='bg-white text-zinc-900'>
         <Routes>
           <Route path='/' element={<Home/>} />
           <Route path='/products' element={<Products/>} />

@@ -1,6 +1,12 @@
+import Header from "../components/Header"
+
 const Products = () => {
   return (
-    <div>Products</div>
+    <>
+      <Header />
+      <h1>Products</h1>
+    </>
+
   )
 }
 
