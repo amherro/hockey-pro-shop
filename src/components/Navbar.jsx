@@ -8,7 +8,7 @@ const Navbar = () => {
   return (
     <nav>
           {isMobile ? (
-            <div className="dropdown flex justify-center mt-7">
+            <div className="dropdown flex justify-center mt-7 z-50">
               <label tabIndex={0} className="btn m-1 w-1/2">
                 <Icon path={mdiMenu} size={1} className=""/>
               </label>
