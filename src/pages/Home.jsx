@@ -1,3 +1,4 @@
+import FeaturedItems from "../components/FeaturedItems"
 import Header from "../components/Header"
 import Hero from "../components/Hero"
 
@@ -6,6 +7,7 @@ const Home = () => {
     <div>
       <Header />
       <Hero />
+      <FeaturedItems />
     </div>
   )
 }

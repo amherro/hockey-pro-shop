@@ -19,3 +19,8 @@ body, html {
 .hero-text {
     color: white;
 }
+
+.github-logo {
+    width: 50px;
+    height: 50px;
+  }
