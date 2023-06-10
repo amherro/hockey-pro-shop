@@ -7,6 +7,7 @@ export const CartContext = createContext({
     getQuantity: () => {},
     getItem: () => {},
     addItem: () => {},
+    removeItem: () => {},
     updateItem: () => {},
     deleteItem: () => {},
 })
@@ -34,6 +35,7 @@ export const CartProvider = ({children}) => {
         }
         // console.log(items)
     }
+
     const contextValue = {
         items,
         getQuantity,

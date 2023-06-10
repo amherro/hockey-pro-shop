@@ -4,7 +4,7 @@ import {Items} from "../itemList"
 const FeaturedItems = () => {
   return (
     <section>
-        <h3>Featured Items</h3>
+        <h3 className="text-center font-bold text-3xl mt-10">Featured Items</h3>
         <div className="carousel w-full mt-10">
             {Items.map(item => (
                 <div className="carousel-item" key={item.id}>

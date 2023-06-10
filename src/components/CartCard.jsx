@@ -10,16 +10,16 @@ const CartCard = ({ item, quantity }) => {
         {/* <img src={img} alt="" /> */}
         <div className="flex">
             <div className="card-title">{title}</div>
-            <div className="card-body p-0 items-end">{price}</div>
+            <div className="card-body p-0 items-end">{`$${price}`}</div>
         </div>
         <div className="flex">
             <p className="card-body p-0 pt-2 text-white">{description}</p>
-            <div className="card-actions p-0 pt-2 items-end">
+            <div className="card-actions p-0 pt-2 flex items-end">
                 <button className="btn btn-primary" onClick={(e) => {
                     e.preventDefault()
                     addItem(item.id)
                 }}>+</button>
-               <h1>{quantity}</h1>
+               <h1 className='align-center'>{quantity}</h1>
                 <button className="btn btn-primary" onClick={console.log('first')}>-</button>
             </div>
         </div>
