@@ -7,6 +7,7 @@ export const CartContext = createContext({
     getQuantity: () => {},
     getItem: () => {},
     addItem: () => {},
+    decreaseItemCount: () => {},
     removeItem: () => {},
     updateItem: () => {},
     deleteItem: () => {},
@@ -25,6 +26,11 @@ export const CartProvider = ({children}) => {
         return quantity
     }
 
+    const removeItem = (id) => {
+        const filteredItems = items.filter(item => item.id !== id)
+        return filteredItems
+    }
+
     const addItem = (id) => {
         // const data = getItemData(id)
         const quantity = getQuantity(id);
@@ -36,10 +42,22 @@ export const CartProvider = ({children}) => {
         // console.log(items)
     }
 
+    const decreaseItemCount = (id) => {
+        const cartLength = getQuantity(id)
+
+        if(cartLength <= 0) {
+            removeItem(id)
+        } else {
+            setItems(items.map(item => item.id === id ? {...item, quantity: item.quantity - 1} : item))
+        }
+    }
+
     const contextValue = {
         items,
         getQuantity,
-        addItem
+        removeItem,
+        addItem,
+        decreaseItemCount
     }
     return (
         <CartContext.Provider value={contextValue}>

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 
 const CartCard = ({ item, quantity }) => {
-    const {addItem} = useContext(CartContext)
+    const {addItem, decreaseItemCount} = useContext(CartContext)
     const {title, description, price, img} = item
   return (
     <div className="card">
@@ -20,7 +20,10 @@ const CartCard = ({ item, quantity }) => {
                     addItem(item.id)
                 }}>+</button>
                <h1 className='align-center'>{quantity}</h1>
-                <button className="btn btn-primary" onClick={console.log('first')}>-</button>
+                <button className="btn btn-primary" onClick={(e) => {
+                    e.preventDefault()
+                    decreaseItemCount(item.id)
+                }}>-</button>
             </div>
         </div>
     </div>
