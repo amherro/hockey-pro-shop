@@ -1,5 +1,4 @@
 import { createContext, useState } from "react";
-// import { Items, getItemData } from "../itemList";
 import PropTypes from 'prop-types';
 
 export const CartContext = createContext({
@@ -27,25 +26,22 @@ export const CartProvider = ({children}) => {
     }
 
     const removeItem = (id) => {
-        const filteredItems = items.filter(item => item.id !== id)
-        return filteredItems
+        setItems(items.filter(item => item.id !== id))
     }
 
     const addItem = (id) => {
-        // const data = getItemData(id)
         const quantity = getQuantity(id);
         if(quantity === 0) {
             setItems([...items, {id, quantity: 1}])
         } else {
             setItems(items.map(item => item.id === id ? {...item, quantity: item.quantity + 1} : item))
         }
-        // console.log(items)
     }
 
     const decreaseItemCount = (id) => {
-        const cartLength = getQuantity(id)
+        let itemQuantity = getQuantity(id)
 
-        if(cartLength <= 0) {
+        if(itemQuantity == 1) {
             removeItem(id)
         } else {
             setItems(items.map(item => item.id === id ? {...item, quantity: item.quantity - 1} : item))

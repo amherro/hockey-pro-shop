@@ -9,7 +9,7 @@ const Hero = () => {
             {/* <button className="btn btn-primary my-8 mb-10 mx-24">
                 <Link to='/products'>Browse Equipment</Link>
             </button> */}
-            <Link to='/products'> 
+            <Link to='/products' className="self-center mt-5"> 
               <button className="btn btn-primary">Browse Equipment</button>
             </Link>
         </div>
