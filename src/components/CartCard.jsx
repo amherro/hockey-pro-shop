@@ -19,7 +19,7 @@ const CartCard = ({ item, quantity }) => {
                     e.preventDefault()
                     addItem(item.id)
                 }}>+</button>
-               <h1 className='align-center'>{quantity}</h1>
+               <h1 className='align-center mb-3'>{quantity}</h1>
                 <button className="btn btn-primary" onClick={(e) => {
                     e.preventDefault()
                     decreaseItemCount(item.id)

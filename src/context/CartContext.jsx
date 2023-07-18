@@ -10,6 +10,7 @@ export const CartContext = createContext({
     removeItem: () => {},
     updateItem: () => {},
     deleteItem: () => {},
+    getTotalPrice: () => {},
 })
 
 export const CartProvider = ({children}) => {
@@ -48,12 +49,18 @@ export const CartProvider = ({children}) => {
         }
     }
 
+    const getTotalPrice = () => {
+        const total = items.reduce((currentTotal, item) => currentTotal + item.price, 0)
+        console.log(total)
+    }
+
     const contextValue = {
         items,
         getQuantity,
         removeItem,
         addItem,
-        decreaseItemCount
+        decreaseItemCount,
+        getTotalPrice
     }
     return (
         <CartContext.Provider value={contextValue}>
