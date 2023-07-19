@@ -1,10 +1,11 @@
 import Header from "../components/Header"
+import ProductDisplay from "../components/ProductDisplay"
 
 const Products = () => {
   return (
     <>
       <Header />
-      <h1>Products</h1>
+      <ProductDisplay />
     </>
 
   )

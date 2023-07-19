@@ -4,16 +4,15 @@ import { CartContext } from '../context/CartContext';
 
 const CartCard = ({ item, quantity }) => {
     const {addItem, decreaseItemCount} = useContext(CartContext)
-    const {title, description, price, img} = item
+    const {title, price, img} = item
   return (
-    <div className="card">
-        {/* <img src={img} alt="" /> */}
+    <div className="card py-5">
         <div className="flex">
             <div className="card-title">{title}</div>
             <div className="card-body p-0 items-end">{`$${Math.round((price * quantity) * 100) / 100}`}</div>
         </div>
-        <div className="flex">
-            <p className="card-body p-0 pt-2 text-white">{description}</p>
+        <div className="flex justify-between">
+            <img src={img} alt={title} className='w-[70px] h-[70px] pt-2' />
             <div className="card-actions p-0 pt-2 flex items-end">
                 <button className="btn btn-primary" onClick={(e) => {
                     e.preventDefault()
