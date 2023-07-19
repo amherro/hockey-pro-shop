@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 import PropTypes from 'prop-types';
+import { getItemData } from "../itemList";
 
 export const CartContext = createContext({
     items: [],
@@ -50,8 +51,18 @@ export const CartProvider = ({children}) => {
     }
 
     const getTotalPrice = () => {
-        const total = items.reduce((currentTotal, item) => currentTotal + item.price, 0)
-        console.log(total)
+        let prices = []
+        items.map(item => {
+            const data = getItemData(item.id)
+            let itemPrice = data.price * item.quantity
+            prices = [...prices, itemPrice]
+            // console.log(prices)
+            return prices
+        })
+        const total =  prices.reduce((sum, current) => {
+            return sum + current
+        }, 0)
+        return (Math.round(total * 100) / 100)
     }
 
     const contextValue = {

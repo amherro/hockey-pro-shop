@@ -8,9 +8,9 @@ import CartCard from './CartCard';
 const Cart = () => {
     const {items, getQuantity, getTotalPrice} = useContext(CartContext)
 
-    useEffect(() => {
-        getTotalPrice()
-    }, [items])
+    // useEffect(() => {
+    //     getTotalPrice()
+    // }, [items])
     
     return (
         <div className="modal-section flex justify-end mr-4 pt-4">
@@ -31,7 +31,7 @@ const Cart = () => {
                         </div>
                     )
                 })}</div>
-                <h4>Total: {}</h4>
+                <h4>Total: {getTotalPrice()}</h4>
             </form>
             </dialog> 
         </div>

@@ -10,21 +10,21 @@ const Items = [
         id: 2,
         title: 'Skates2',
         description: 'A pair of skates',
-        price: 99.99,
+        price: 92.99,
         img: ''
     },
     {
         id: 3,
         title: 'Skates3',
         description: 'A pair of skates',
-        price: 99.99,
+        price: 93.99,
         img: ''
     },
     {
         id: 4,
         title: 'Skates4',
         description: 'A pair of skates',
-        price: 99.99,
+        price: 94.99,
         img: ''
     },
 ]

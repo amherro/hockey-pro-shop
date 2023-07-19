@@ -10,7 +10,7 @@ const CartCard = ({ item, quantity }) => {
         {/* <img src={img} alt="" /> */}
         <div className="flex">
             <div className="card-title">{title}</div>
-            <div className="card-body p-0 items-end">{`$${price}`}</div>
+            <div className="card-body p-0 items-end">{`$${Math.round((price * quantity) * 100) / 100}`}</div>
         </div>
         <div className="flex">
             <p className="card-body p-0 pt-2 text-white">{description}</p>
