@@ -18,7 +18,7 @@ const Cart = () => {
                 <button htmlFor="my-modal-3" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
                 <h4 className="font-bold text-5xl">Cart</h4>
                 <h5 className="py-4 text-3xl">My Items:</h5>
-                <div>{items.map(item => {
+                <div>{items.length === 0 ? (<h6 className='my-10'>Your cart is empty.</h6>) : (items.map(item => {
                     const cartItem = getItemData(item.id)
                     const itemQuantity = getQuantity(item.id)
                     return (
@@ -26,8 +26,8 @@ const Cart = () => {
                             <CartCard key={cartItem} item={cartItem} quantity={itemQuantity} />
                         </div>
                     )
-                })}</div>
-                <h4>Total: ${getTotalPrice()}</h4>
+                }))}</div>
+                <h4 className=''>Total: ${getTotalPrice()}</h4>
             </form>
             </dialog> 
         </div>
