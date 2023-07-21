@@ -10,15 +10,15 @@ const Cart = () => {
     
     return (
         <div className="modal-section flex justify-end mr-4 pt-4">
-            <button className="btn bg-white" onClick={()=>window.my_modal_3.showModal()}>
+            <button className="btn bg-white hover:bg-gray-400" onClick={()=>window.my_modal_3.showModal()}>
                 <Icon path={mdiCart} size={1} color='black' />
             </button>
             <dialog id="my_modal_3" className="modal">
             <form method="dialog" className="modal-box w-full h-full">
-                <button htmlFor="my-modal-3" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                <button htmlFor="my-modal-3" className="btn btn-sm btn-circle btn-ghost hover:btn-error absolute right-2 top-2">✕</button>
                 <h4 className="font-bold text-5xl">Cart</h4>
                 <h5 className="py-4 text-3xl">My Items:</h5>
-                <div>{items.length === 0 ? (<h6 className='my-10'>Your cart is empty.</h6>) : (items.map(item => {
+                <div className={items.length > 0 ? `min-h-[100px]` : ''}>{items.length <= 0 ? (<h6 className='my-10 font-bold text-xl'>Your cart is empty.</h6>) : (items.map(item => {
                     const cartItem = getItemData(item.id)
                     const itemQuantity = getQuantity(item.id)
                     return (
@@ -27,7 +27,10 @@ const Cart = () => {
                         </div>
                     )
                 }))}</div>
-                <h4 className=''>Total: ${getTotalPrice()}</h4>
+                <h4 className='font-bold text-2xl text-right'>Total: ${getTotalPrice()}</h4>
+                <div className="flex justify-end">
+                    <input type="submit" value="Checkout" className={`btn btn-md btn-primary mt-4 ${items.length === 0 && 'hidden'}`} />
+                </div>
             </form>
             </dialog> 
         </div>
