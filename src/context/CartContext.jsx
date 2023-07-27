@@ -9,6 +9,7 @@ export const CartContext = createContext({
     addItem: () => {},
     decreaseItemCount: () => {},
     removeItem: () => {},
+    removeAllItems: () => {},
     updateItem: () => {},
     deleteItem: () => {},
     getTotalPrice: () => {},
@@ -29,6 +30,10 @@ export const CartProvider = ({children}) => {
 
     const removeItem = (id) => {
         setItems(items.filter(item => item.id !== id))
+    }
+
+    const removeAllItems = () => {
+        setItems([])
     }
 
     const addItem = (id) => {
@@ -69,6 +74,7 @@ export const CartProvider = ({children}) => {
         items,
         getQuantity,
         removeItem,
+        removeAllItems,
         addItem,
         decreaseItemCount,
         getTotalPrice
