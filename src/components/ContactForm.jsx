@@ -52,7 +52,7 @@ const ContactForm = () => {
                     <label htmlFor="message">Message</label>
                     <textarea type="text" name="message" id="message" className="textarea w-[1000px] max-w-xs resize bg-white border border-black" onChange={writeText} value={message.text}/>
                 </div>
-                <input type="submit" value="Send Message" className="btn btn-primary my-4 w-[320px]" />
+                <input type="submit" value="Send Message" className="btn bg-blue-700 text-white my-4 w-[320px]" />
             </div>
         </form>
     )

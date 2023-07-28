@@ -6,11 +6,8 @@ const Hero = () => {
         <div className="hero-text flex flex-col content-center pt-20">
             <h2 className="text-center font-bold text-2xl pt-10">Elite Hockey Equipment</h2>
             <p className="text-center mx-20 text-xl mt-5">The latest and greatest hockey equipment to help you become the best player you can.</p>
-            {/* <button className="btn btn-primary my-8 mb-10 mx-24">
-                <Link to='/products'>Browse Equipment</Link>
-            </button> */}
             <Link to='/products' className="self-center mt-5"> 
-              <button className="btn btn-primary">Browse Equipment</button>
+              <button className="btn w-[200px] bg-blue-700 text-white border-none">Browse Equipment</button>
             </Link>
         </div>
     </section>
