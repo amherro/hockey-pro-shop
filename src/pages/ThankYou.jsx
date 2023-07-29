@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 
 const ThankYou = () => {
-
   return (
     <>
       <Header />
@@ -11,11 +10,11 @@ const ThankYou = () => {
         <h4 className='text-center font-bold text-xl'>We&apos;ll begin fulfilling it and email you when it&apos;s on the way.</h4>
       </section>
       <section className='flex justify-center pb-10'>
-        <button>
-          <Link to='/' className='btn bg-blue-700 text-white mr-2 border-none'>Back to Home</Link>
+        <button className='btn bg-blue-700 text-white mr-2 border-none'>
+          <Link to='/'>Back to Home</Link>
         </button>
-        <button>
-          <Link to='/products' className='btn bg-blue-700 text-white border-none'>Continue Shopping</Link>
+        <button className='btn bg-blue-700 text-white border-none'>
+          <Link to='/products'>Continue Shopping</Link>
         </button>
       </section>
     </>

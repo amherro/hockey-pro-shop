@@ -17,7 +17,6 @@ export const CartContext = createContext({
 
 export const CartProvider = ({children}) => {
     const [items, setItems] = useState([])
-    const [checked, setChecked] = useState(false)
 
     const getQuantity = (id) => {
         const quantity = items.find(item => item.id === id)?.quantity
@@ -73,8 +72,6 @@ export const CartProvider = ({children}) => {
 
     const contextValue = {
         items,
-        checked,
-        setChecked,
         getQuantity,
         removeItem,
         removeAllItems,

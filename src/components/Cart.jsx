@@ -1,15 +1,18 @@
 import Icon from '@mdi/react';
 import { mdiCart } from '@mdi/js';
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { CartContext } from '../context/CartContext';
 import { getItemData } from '../itemList';
 import CartCard from './CartCard';
+import { Link } from 'react-router-dom';
 
 
 const Cart = () => {
+    const [checked, setChecked] = useState(false)
     const {items, getQuantity, removeAllItems, getTotalPrice} = useContext(CartContext)
 
     const checkOut = () => {
+        setChecked(!checked)
         removeAllItems()
     }
     
@@ -19,8 +22,9 @@ const Cart = () => {
                 <Icon path={mdiCart} size={1} color='black' />
             </button>
             {
+                !checked && 
                 <dialog id="my_modal_3" className="modal">
-                    <form method="dialog" className='modal-box w-full h-full' >
+                    <form method="dialog" className=' modal-box w-full h-full' >
                         <button htmlFor="my-modal-3" className="btn btn-sm btn-circle btn-ghost hover:btn-error absolute right-2 top-2">✕</button>
                         <h4 className="font-bold text-5xl">Cart</h4>
                         <h5 className="py-4 text-3xl">My Items:</h5>
@@ -35,11 +39,10 @@ const Cart = () => {
                         }))}</div>
                         <h4 className='font-bold text-2xl text-right'>Total: ${getTotalPrice()}</h4>
                         <div className="flex justify-end">
-                                {/* <Link onClick={checkOut} to='/thankyou'>Checkout</Link> */}
-                                
-                                <button htmlFor="my_modal_3">
-                                    <a onClick={checkOut} href='/thankyou' className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`}>Checkout</a>
-                                </button>
+                            <button htmlFor="my_modal_3" className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`}>
+                                <Link onClick={checkOut} to='/thankyou'>Checkout</Link>
+                                {/* <a onClick={checkOut} href='/thankyou'>Checkout</a> */}
+                            </button>
                         </div>
                     </form>
                 </dialog> 
