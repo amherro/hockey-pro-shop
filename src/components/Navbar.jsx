@@ -14,26 +14,26 @@ const Navbar = () => {
               </label>
               <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-zinc-900 rounded-box w-52 mt-14">
               <li>
-                 <Link to='/' className="bg-zinc-900 text-slate-50">Home</Link>
+                 <Link to='/' className="bg-zinc-900 text-slate-50 font-bold">Home</Link>
               </li>
               <li>
-                <Link to='/products' className="bg-zinc-900 text-slate-50">Products</Link>
+                <Link to='/products' className="bg-zinc-900 text-slate-50 font-bold">Products</Link>
               </li>
               <li>
-                <Link to='/contact' className="bg-zinc-900 text-slate-50">Contact</Link>
+                <Link to='/contact' className="bg-zinc-900 text-slate-50 font-bold">Contact</Link>
               </li>
               </ul>
           </div>
           ) : (
             <ul className="flex justify-evenly mt-7 mb-14">
               <li>
-                <Link to='/'>Home</Link>
+                <Link to='/' className="font-bold text-black hover:text-blue-700">Home</Link>
               </li>
               <li>
-                <Link to='/products'>Products</Link>
+                <Link to='/products' className="font-bold text-black hover:text-blue-700">Products</Link>
               </li>
               <li>
-                <Link to='/contact'>Contact</Link>
+                <Link to='/contact' className="font-bold text-black hover:text-blue-700">Contact</Link>
               </li>
             </ul>
           )}
