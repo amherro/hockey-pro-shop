@@ -8,8 +8,8 @@ const CartCard = ({ item, quantity }) => {
   return (
     <div className="card py-5">
         <div className="flex">
-            <div className="card-title">{title}</div>
-            <div className="card-body p-0 items-end">{`$${Math.round((price * quantity) * 100) / 100}`}</div>
+            <div className="card-title text-white">{title}</div>
+            <div className="card-body p-0 items-end text-white">{`$${Math.round((price * quantity) * 100) / 100}`}</div>
         </div>
         <div className="flex justify-between">
             <img src={img} alt={title} className='w-[70px] h-[70px] pt-2' />
@@ -18,7 +18,7 @@ const CartCard = ({ item, quantity }) => {
                     e.preventDefault()
                     addItem(item.id)
                 }}>+</button>
-               <h1 className='align-center mb-3'>{quantity}</h1>
+               <h1 className='align-center mb-3 text-white'>{quantity}</h1>
                 <button className="btn bg-blue-700 text-white" onClick={(e) => {
                     e.preventDefault()
                     decreaseItemCount(item.id)
