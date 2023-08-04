@@ -4,8 +4,6 @@ import { useContext, useState } from 'react';
 import { CartContext } from '../context/CartContext';
 import { getItemData } from '../itemList';
 import CartCard from './CartCard';
-import { Link } from 'react-router-dom';
-
 
 const Cart = () => {
     const [checked, setChecked] = useState(false)
@@ -39,9 +37,8 @@ const Cart = () => {
                         }))}</div>
                         <h4 className='font-bold text-2xl text-right text-white'>Total: ${getTotalPrice()}</h4>
                         <div className="flex justify-end">
-                            <button htmlFor="my_modal_3" className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`}>
-                                <Link onClick={checkOut} to='/thankyou'>Checkout</Link>
-                                {/* <a onClick={checkOut} href='/thankyou'>Checkout</a> */}
+                            <button onClick={checkOut} htmlFor="my_modal_3" className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`}>
+                                <a onClick={checkOut} href='/thankyou'>Checkout</a>
                             </button>
                         </div>
                     </form>

@@ -14,12 +14,12 @@ const CartCard = ({ item, quantity }) => {
         <div className="flex justify-between">
             <img src={img} alt={title} className='w-[70px] h-[70px] pt-2' />
             <div className="card-actions p-0 pt-2 flex items-end">
-                <button className="btn bg-blue-700 text-white" onClick={(e) => {
+                <button type='button' className="btn bg-blue-700 text-white" onClick={(e) => {
                     e.preventDefault()
                     addItem(item.id)
                 }}>+</button>
                <h1 className='align-center mb-3 text-white'>{quantity}</h1>
-                <button className="btn bg-blue-700 text-white" onClick={(e) => {
+                <button type='button' className="btn bg-blue-700 text-white" onClick={(e) => {
                     e.preventDefault()
                     decreaseItemCount(item.id)
                 }}>-</button>
