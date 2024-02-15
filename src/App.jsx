@@ -6,13 +6,16 @@ import ThankYou from './pages/ThankYou'
 import Footer from './components/Footer'
 import Cart from './components/Cart'
 import { CartProvider } from './context/CartContext'
+import { useParams } from 'react-router-dom'
 
 function App() {
+  let urlParam = useParams()
+  console.log(urlParam)
   return (
     <CartProvider>
       <Router>
         <main className='bg-white text-zinc-900'>
-          <Cart />
+          {urlParam !== ':/thankyou' && <Cart />}
           <Routes>
             <Route path='/' element={<Home/>} />
             <Route path='/products' element={<Products/>} />

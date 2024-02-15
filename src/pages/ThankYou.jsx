@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 import Header from '../components/Header'
 
 const ThankYou = () => {
@@ -11,10 +11,10 @@ const ThankYou = () => {
       </section>
       <section className='flex justify-center pb-10'>
         <button className='btn bg-blue-700 text-white mr-2 border-none'>
-          <Link to='/'>Back to Home</Link>
+          <a href='/'>Back to Home</a>
         </button>
         <button className='btn bg-blue-700 text-white border-none'>
-          <Link to='/products'>Continue Shopping</Link>
+          <a href='/products'>Continue Shopping</a>
         </button>
       </section>
     </>
