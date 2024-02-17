@@ -12,7 +12,7 @@ const Navbar = () => {
               <label tabIndex={0} className="btn m-1 w-full bg-zinc-900">
                 <Icon path={mdiMenu} size={1} color='white'/>
               </label>
-              <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-zinc-900 rounded-box w-52 mt-14">
+              <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-zinc-900 rounded-box w-[120%] mt-14">
               <li>
                  <Link to='/' className="bg-zinc-900 text-slate-50">Home</Link>
               </li>
