@@ -8,9 +8,9 @@ const Navbar = () => {
   return (
     <nav>
           {isMobile ? (
-            <div className="dropdown flex justify-center mt-7 mx-20 rounded-lg bg-zinc-900 z-50">
-              <label tabIndex={0} className="btn m-1 w-1/2">
-                <Icon path={mdiMenu} size={1} className="bg-zinc-900"/>
+            <div className="dropdown flex justify-center mt-7 mx-20 rounded-lg z-50">
+              <label tabIndex={0} className="btn m-1 w-1/2 bg-zinc-900">
+                <Icon path={mdiMenu} size={1}/>
               </label>
               <ul tabIndex={0} className="dropdown-content menu p-2 shadow bg-zinc-900 rounded-box w-52 mt-14">
               <li>
