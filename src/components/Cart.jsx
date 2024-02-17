@@ -23,7 +23,7 @@ const Cart = () => {
             {
                 !checked && 
                 <dialog id="my_modal_3" className="modal">
-                    <form method="dialog" className=' modal-box w-full h-full bg-zinc-900' >
+                    <form method="dialog" className=' modal-box w-[90%] h-4/5 bg-zinc-900' >
                         <button htmlFor="my-modal-3" className="btn btn-sm btn-circle btn-ghost border-white hover:btn-error text-white absolute right-4 top-4">✕</button>
                         <h4 className="font-bold text-5xl text-white">Cart</h4>
                         <h5 className="py-4 text-3xl text-white">My Items:</h5>
