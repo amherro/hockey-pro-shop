@@ -11,10 +11,7 @@ const ThankYou = () => {
       </section>
       <section className='flex justify-center pb-10'>
         <button className='btn bg-blue-700 text-white mr-2 border-none'>
-          <a href='/'>Back to Home</a>
-        </button>
-        <button className='btn bg-blue-700 text-white border-none'>
-          <a href='/products'>Continue Shopping</a>
+          <a href='/'>Continue Shopping</a>
         </button>
       </section>
     </>

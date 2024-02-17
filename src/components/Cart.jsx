@@ -17,13 +17,13 @@ const Cart = () => {
     
     return (
         <div className="modal-section flex justify-end mr-4 pt-4">
-            <button className="btn bg-white hover:bg-gray-400" onClick={()=>window.my_modal_3.showModal()}>
+            <button className="btn bg-white hover:bg-gray-500" onClick={()=>window.my_modal_3.showModal()}>
                 <Icon path={mdiCart} size={1} color='black' />
             </button>
             {
                 !checked && 
                 <dialog id="my_modal_3" className="modal">
-                    <form method="dialog" className=' modal-box w-full h-full' >
+                    <form method="dialog" className=' modal-box w-full h-full bg-zinc-900' >
                         <button htmlFor="my-modal-3" className="btn btn-sm btn-circle btn-ghost border-white hover:btn-error text-white absolute right-4 top-4">✕</button>
                         <h4 className="font-bold text-5xl text-white">Cart</h4>
                         <h5 className="py-4 text-3xl text-white">My Items:</h5>

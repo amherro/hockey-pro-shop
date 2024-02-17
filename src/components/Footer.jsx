@@ -7,7 +7,7 @@ const Footer = () => {
             <a href="https://github.com/amherro">
                 <img src={githubLogo} alt="Github Logo" className='github-logo' />
             </a>
-            <p className='pl-5 self-center text-black'>Copyright &copy; 2023 amherro</p>
+            <p className='pl-5 self-center text-black'>Copyright &copy; 2024 amherro</p>
         </div>
     </footer>
   )
