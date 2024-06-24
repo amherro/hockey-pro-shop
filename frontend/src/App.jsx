@@ -10,7 +10,7 @@ import { useParams } from 'react-router-dom'
 
 function App() {
   let urlParam = useParams()
-  console.log(urlParam)
+  // console.log(urlParam)
   return (
     <CartProvider>
       <Router>

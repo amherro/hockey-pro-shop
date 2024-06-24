@@ -23,7 +23,7 @@ const Cart = () => {
             {
                 !checked && 
                 <dialog id="my_modal_3" className="modal">
-                    <form method="dialog" className=' modal-box w-[90%] h-4/5 bg-zinc-900' >
+                    <form action="/create-checkout-session" method="POST" className='modal-box w-[90%] h-4/5 bg-zinc-900' >
                         <button htmlFor="my-modal-3" className="btn btn-sm btn-circle btn-ghost border-white hover:btn-error text-white absolute right-4 top-4">✕</button>
                         <h4 className="font-bold text-5xl text-white">Cart</h4>
                         <h5 className="py-4 text-3xl text-white">My Items:</h5>
@@ -38,11 +38,19 @@ const Cart = () => {
                         }))}</div>
                         <h4 className='font-bold text-2xl text-right text-white'>Total: ${getTotalPrice()}</h4>
                         <div className="flex justify-end">
-                        <Link to='/thankyou'>
+                        {/* <Link to='/thankyou'>
                             <button onClick={checkOut} htmlFor="my_modal_3" className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`}>Checkout</button>
-                        </Link>
+                        </Link> */}
+                            <button type="submit" className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`}>
+                                Checkout
+                            </button>
                         </div>
                     </form>
+                    {/* <form action="/create-checkout-session" method="POST" className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`}>
+                            <button type="submit">
+                                Checkout
+                            </button>
+                    </form> */}
                 </dialog> 
             
             }
