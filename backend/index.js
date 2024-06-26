@@ -63,7 +63,7 @@ app.post('/checkout', async (req, res) => {
         success_url: `${frontend}/thankyou?success=true`,
         cancel_url: `${frontend}?canceled=true`,
     })
-    res.redirect(303, session.url);
+    res.redirect(303, session.frontend);
 })
 
 app.listen(4242, () => console.log('Running on port 4242'));

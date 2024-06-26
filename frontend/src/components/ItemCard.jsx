@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { useContext } from 'react';
 import { CartContext } from '../context/CartContext';
 
-const ItemCard = ({ id, title, desc, price, img }) => {
+const ItemCard = ({ id, title, price, img }) => {
   const {addItem} = useContext(CartContext)
 
   const addToCart = () => {
@@ -25,7 +25,7 @@ const ItemCard = ({ id, title, desc, price, img }) => {
 }
 
 ItemCard.propTypes = {
-    id: PropTypes.number,
+    id: PropTypes.string,
     item: PropTypes.any,
     title: PropTypes.string,
     desc: PropTypes.string,
