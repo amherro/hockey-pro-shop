@@ -41,7 +41,7 @@ const Cart = () => {
                         {/* <Link to='/thankyou'>
                             <button onClick={checkOut} htmlFor="my_modal_3" className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`}>Checkout</button>
                         </Link> */}
-                            <button type="submit" className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`}>
+                            <button type="submit" className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`} onClick={console.log(items)}>
                                 Checkout
                             </button>
                         </div>

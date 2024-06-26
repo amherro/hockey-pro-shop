@@ -5,7 +5,7 @@
   "main": "index.js",
   "proxy": "<http://localhost:4242>",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "nodemon --env-file=../.env index.js"
   },
   "author": "Adam Herro",
   "license": "ISC",

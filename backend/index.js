@@ -7,7 +7,7 @@ app.use(express.static('public'))
 
 const frontend = 'https://hockey-ecommerce-store.onrender.com/'
 
-app.post('/create-checkout-session', async (req, res) => {
+app.post('/checkout', async (req, res) => {
     const session = await stripe.checkout.sessions.create({
         line_items: [
             {
@@ -60,9 +60,10 @@ app.post('/create-checkout-session', async (req, res) => {
             },
         ],
         mode: 'payment',
-        success_url: `${frontend}?success=true`,
+        success_url: `${frontend}/thankyou?success=true`,
         cancel_url: `${frontend}?canceled=true`,
     })
     res.redirect(303, session.url);
 })
+
 app.listen(4242, () => console.log('Running on port 4242'));
