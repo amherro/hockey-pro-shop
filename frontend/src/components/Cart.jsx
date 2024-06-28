@@ -10,11 +10,21 @@ const Cart = () => {
     const [checked, setChecked] = useState(false)
     const {items, getQuantity, removeAllItems, getTotalPrice} = useContext(CartContext)
 
-    const checkOut = () => {
-        setChecked(!checked)
-        removeAllItems()
+    const checkOut = async () => {
+        await fetch('http://localhost:8080/checkout', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({items: items})
+        }).then((response) => {
+            return response.json();
+        }).then((response) => {
+            if(response.url) {
+                window.location.assign(response.url);
+            }
+        });
     }
-    
     return (
         <div className="modal-section flex justify-end mr-4 pt-4">
             <button className="btn bg-white hover:bg-gray-500" onClick={()=>window.my_modal_3.showModal()}>
@@ -40,8 +50,8 @@ const Cart = () => {
                             <h4 className='font-bold text-2xl text-right text-white'>Total: ${getTotalPrice()}</h4>
                         </form>
                         <div className="flex justify-end">
-                            <form action="/checkout" method="POST" className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`}>
-                                    <button type="submit">
+                            <form action='http://localhost:8080/checkout' method="POST" className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`}>
+                                    <button onClick={checkOut}>
                                         Checkout
                                     </button>
                             </form>

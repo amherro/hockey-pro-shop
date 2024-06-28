@@ -1,69 +1,38 @@
 const stripe = require("stripe")(process.env.STRIPE_API_KEY)
 const express = require("express")
+const cors = require('cors');
 
 const app = express()
-
+app.use(cors())
 app.use(express.static('public'))
-
-const frontend = 'https://hockey-ecommerce-store.onrender.com/'
+app.use(express.json())
 
 app.post('/checkout', async (req, res) => {
-    const session = await stripe.checkout.sessions.create({
-        line_items: [
-            {
-                price: 'price_1PVL9hIvAmQ0UuMIC6eXokEr',
-                quantity: 1,
-            },
-            {
-                price: 'price_1PVL9HIvAmQ0UuMIbFHNRSft',
-                quantity: 1,
-            },
-            {
-                price: 'price_1PVL8kIvAmQ0UuMIl62RANQh',
-                quantity: 1,
-            },
-            {
-                price: 'price_1PVL7hIvAmQ0UuMIcboDWym6',
-                quantity: 1,
-            },
-            {
-                price: 'price_1PVL77IvAmQ0UuMISfdJE5bU',
-                quantity: 1,
-            },
-            {
-                price: 'price_1PVL64IvAmQ0UuMI3HnTdncT',
-                quantity: 1,
-            },
-            {
-                price: 'price_1PVL5SIvAmQ0UuMI1XiJEBbA',
-                quantity: 1,
-            },
-            {
-                price: 'price_1PVL4XIvAmQ0UuMIIgmiKGn5',
-                quantity: 1,
-            },
-            {
-                price: 'price_1PVL3sIvAmQ0UuMIsoHKizsg',
-                quantity: 1,
-            },
-            {
-                price: 'price_1PVL36IvAmQ0UuMIVOIXbgUZ',
-                quantity: 1,
-            },
-            {
-                price: 'price_1PVL2JIvAmQ0UuMIbQLtcfLY',
-                quantity: 1,
-            },
-            {
-                price: 'price_1PVL1LIvAmQ0UuMI9aVLrlgN',
-                quantity: 1,
-            },
-        ],
-        mode: 'payment',
-        success_url: `${frontend}/thankyou?success=true`,
-        cancel_url: `${frontend}?canceled=true`,
-    })
-    res.redirect(303, session.frontend);
+    try {
+        const itemsInCart = req.body.items
+        
+        console.log(itemsInCart)
+        
+        let lineItems = []
+    
+        itemsInCart.forEach(item => {
+            lineItems.push({price: item.id, quantity: item.quantity})
+        })
+        
+        const session = await stripe.checkout.sessions.create({
+            line_items: lineItems,
+            mode: 'payment',
+            success_url: 'http://localhost:5001/thankyou?success=true',
+            cancel_url: `http://localhost:5001/?canceled=true`,
+        })
+        console.log(session.url)
+        res.send(JSON.stringify({
+            url: session.url
+        }));
+    } catch (error) {
+        console.log(error)
+    }
+
 })
 
-app.listen(4242, () => console.log('Running on port 4242'));
+app.listen(8080, () => console.log('Running on port 8080'));
