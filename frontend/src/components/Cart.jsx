@@ -50,8 +50,8 @@ const Cart = () => {
                             <h4 className='font-bold text-2xl text-right text-white'>Total: ${getTotalPrice()}</h4>
                         </form>
                         <div className="flex justify-end">
-                            <form action={`${process.env.NODE_ENV === 'production' ? 'https://hockey-ecommerce-server.onrender.com/checkout' : 'http://localhost:10000/checkout' }`} method="POST" className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`}>
-                                    <button onClick={checkOut}>
+                            <form action={`${process.env.NODE_ENV === 'production' ? 'https://hockey-ecommerce-server.onrender.com/checkout' : 'http://localhost:10000/checkout' }`} method="POST">
+                                    <button onClick={checkOut} className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`}>
                                         Checkout
                                     </button>
                             </form>
