@@ -23,7 +23,7 @@ app.post('/checkout', async (req, res) => {
         const session = await stripe.checkout.sessions.create({
             line_items: lineItems,
             mode: 'payment',
-            success_url: `${process.env.NODE_ENV === 'production' ? 'https://hockey-ecommerce-store.onrender.com/thankyou?success=true' : 'http://localhost:5001/thankyou?success=true'}`,
+            success_url: `${process.env.NODE_ENV === 'production' ? 'https://hockey-ecommerce-store.onrender.com/?success=true' : 'http://localhost:5001/?success=true'}`,
             cancel_url: `${process.env.NODE_ENV === 'production' ? 'https://hockey-ecommerce-store.onrender.com/?canceled=true' : 'http://localhost:5001/?canceled=true'}`,
         })
         console.log(session.url)
