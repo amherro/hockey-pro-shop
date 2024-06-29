@@ -11,7 +11,7 @@ const Cart = () => {
     const {items, getQuantity, removeAllItems, getTotalPrice} = useContext(CartContext)
 
     const checkOut = async () => {
-        await fetch(`${process.env.NODE_ENV === 'production' ? 'http://localhost:5050/checkout' : 'http://localhost:8080/checkout' }`, {
+        await fetch(`${process.env.NODE_ENV === 'production' ? 'https://hockey-ecommerce-server.onrender.com/checkout' : 'http://localhost:8080/checkout' }`, {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
@@ -50,7 +50,7 @@ const Cart = () => {
                             <h4 className='font-bold text-2xl text-right text-white'>Total: ${getTotalPrice()}</h4>
                         </form>
                         <div className="flex justify-end">
-                            <form action={`${process.env.NODE_ENV === 'production' ? 'http://localhost:5050/checkout' : 'http://localhost:8080/checkout' }`} method="POST" className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`}>
+                            <form action={`${process.env.NODE_ENV === 'production' ? 'https://hockey-ecommerce-server.onrender.com/checkout' : 'http://localhost:8080/checkout' }`} method="POST" className={`btn btn-md bg-blue-700 text-white mt-4 ${items.length === 0 && 'hidden'}`}>
                                     <button onClick={checkOut}>
                                         Checkout
                                     </button>
