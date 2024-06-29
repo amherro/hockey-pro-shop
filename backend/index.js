@@ -22,8 +22,8 @@ app.post('/checkout', async (req, res) => {
         const session = await stripe.checkout.sessions.create({
             line_items: lineItems,
             mode: 'payment',
-            success_url: 'http://localhost:5001/thankyou?success=true',
-            cancel_url: `http://localhost:5001/?canceled=true`,
+            success_url: `${process.env.NODE_ENV === 'production' ? 'http://localhost:8080/thankyou?success=true' : 'http://localhost:5001/thankyou?success=true'}`,
+            cancel_url: `${process.env.NODE_ENV === 'production' ? 'http://localhost:8080/?canceled=true' : 'http://localhost:5001/?canceled=true'}`,
         })
         console.log(session.url)
         res.send(JSON.stringify({
