@@ -1,6 +1,7 @@
 const stripe = require("stripe")(process.env.STRIPE_API_KEY)
 const express = require("express")
 const cors = require('cors');
+const PORT = process.env.PORT || 8080
 
 const app = express()
 app.use(cors())
@@ -22,8 +23,8 @@ app.post('/checkout', async (req, res) => {
         const session = await stripe.checkout.sessions.create({
             line_items: lineItems,
             mode: 'payment',
-            success_url: `${process.env.NODE_ENV === 'production' ? 'https://hockey-ecommerce-store.onrender.com//thankyou?success=true' : 'http://localhost:5001/thankyou?success=true'}`,
-            cancel_url: `${process.env.NODE_ENV === 'production' ? 'https://hockey-ecommerce-store.onrender.com//?canceled=true' : 'http://localhost:5001/?canceled=true'}`,
+            success_url: `${process.env.NODE_ENV === 'production' ? 'https://hockey-ecommerce-store.onrender.com/thankyou?success=true' : 'http://localhost:5001/thankyou?success=true'}`,
+            cancel_url: `${process.env.NODE_ENV === 'production' ? 'https://hockey-ecommerce-store.onrender.com/?canceled=true' : 'http://localhost:5001/?canceled=true'}`,
         })
         console.log(session.url)
         res.send(JSON.stringify({
@@ -35,4 +36,4 @@ app.post('/checkout', async (req, res) => {
 
 })
 
-app.listen(8080, () => console.log('Running on port 8080'));
+app.listen(PORT, () => console.log(`Running on port ${PORT}`));
