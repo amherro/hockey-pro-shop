@@ -8,8 +8,7 @@ import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const [checked, setChecked] = useState(false);
-  const { items, getQuantity, removeAllItems, getTotalPrice } =
-    useContext(CartContext);
+  const { items, getQuantity, getTotalPrice } = useContext(CartContext);
 
   const checkOut = async () => {
     await fetch(
@@ -23,7 +22,12 @@ const Cart = () => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ items: items }),
+        body: JSON.stringify({
+          items: items.map((item) => ({
+            id: item.id,
+            quantity: getQuantity(item.id),
+          })),
+        }),
       }
     )
       .then((response) => {
@@ -84,23 +88,14 @@ const Cart = () => {
               </h4>
             </form>
             <div className="flex justify-end">
-              <form
-                action={`${
-                  process.env.NODE_ENV === 'production'
-                    ? 'https://hockey-ecommerce-server.onrender.com/checkout'
-                    : 'http://localhost:10000/checkout'
+              <button
+                onClick={checkOut}
+                className={`btn btn-md bg-blue-700 text-white mt-4 ${
+                  items.length === 0 && 'hidden'
                 }`}
-                method="POST"
               >
-                <button
-                  onClick={checkOut}
-                  className={`btn btn-md bg-blue-700 text-white mt-4 ${
-                    items.length === 0 && 'hidden'
-                  }`}
-                >
-                  Checkout
-                </button>
-              </form>
+                Checkout
+              </button>
             </div>
           </div>
         </dialog>

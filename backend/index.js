@@ -10,15 +10,12 @@ app.use(express.json());
 
 app.post('/checkout', async (req, res) => {
   try {
-    const itemsInCart = req.body.items;
+    let itemsInCart = req.body.items;
 
-    console.log(itemsInCart);
-
-    let lineItems = [];
-
-    itemsInCart.forEach((item) => {
-      lineItems.push({ price: item.id, quantity: item.quantity });
-    });
+    let lineItems = itemsInCart.map((item) => ({
+      price: item.id,
+      quantity: item.quantity,
+    }));
 
     const session = await stripe.checkout.sessions.create({
       line_items: lineItems,
@@ -34,7 +31,6 @@ app.post('/checkout', async (req, res) => {
           : 'http://localhost:5001/?canceled=true'
       }`,
     });
-    console.log(session.url);
     res.send(
       JSON.stringify({
         url: session.url,

@@ -9,8 +9,8 @@ import { CartProvider } from './context/CartContext';
 import { useParams } from 'react-router-dom';
 
 function App() {
-  let urlParam = useParams();
-  // console.log(urlParam)
+  let { urlParam } = useParams();
+  // console.log(urlParam);
   return (
     <CartProvider>
       <Router>
