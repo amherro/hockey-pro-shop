@@ -1,16 +1,18 @@
-import githubLogo from '../assets/github-mark.png'
+import githubLogo from '../assets/github-mark.png';
 
 const Footer = () => {
   return (
     <footer>
-        <div className="footer-container flex p-10 justify-center items-center bg-white">
-            <a href="https://github.com/amherro">
-                <img src={githubLogo} alt="Github Logo" className='github-logo' />
-            </a>
-            <p className='pl-5 self-center text-black'>Copyright &copy; 2024 amherro</p>
-        </div>
+      <div className="footer-container flex p-10 justify-center items-center bg-white">
+        <a href="https://github.com/amherro">
+          <img src={githubLogo} alt="Github Logo" className="github-logo" />
+        </a>
+        <p className="pl-5 self-center text-black">
+          Copyright &copy; 2025 amherro
+        </p>
+      </div>
     </footer>
-  )
-}
+  );
+};
 
-export default Footer
+export default Footer;
