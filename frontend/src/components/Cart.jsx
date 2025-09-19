@@ -4,13 +4,14 @@ import { useContext, useState } from 'react';
 import { CartContext } from '../context/CartContext';
 import { getItemData } from '../itemList';
 import CartCard from './CartCard';
-import { Link } from 'react-router-dom';
 
 const Cart = () => {
   const [checked, setChecked] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { items, getQuantity, getTotalPrice } = useContext(CartContext);
 
   const checkOut = async () => {
+    setLoading(true);
     await fetch(
       `${
         process.env.NODE_ENV === 'production'
@@ -87,14 +88,15 @@ const Cart = () => {
                 Total: ${getTotalPrice()}
               </h4>
             </form>
-            <div className="flex justify-end">
+            <div className="flex justify-center mt-7">
               <button
                 onClick={checkOut}
-                className={`btn btn-md bg-blue-700 text-white mt-4 ${
+                id="checkout"
+                className={`btn btn-md bg-blue-700 text-white p-0 w-[80%] ${
                   items.length === 0 && 'hidden'
                 }`}
               >
-                Checkout
+                {loading ? 'Loading...' : 'Checkout'}
               </button>
             </div>
           </div>
