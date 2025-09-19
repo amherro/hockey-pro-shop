@@ -24,10 +24,7 @@ const Cart = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          items: items.map((item) => ({
-            id: item.id,
-            quantity: getQuantity(item.id),
-          })),
+          items,
         }),
       }
     )
