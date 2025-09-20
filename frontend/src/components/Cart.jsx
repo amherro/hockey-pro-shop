@@ -1,5 +1,5 @@
 import Icon from '@mdi/react';
-import { mdiCart } from '@mdi/js';
+import { mdiCart, mdiLoading } from '@mdi/js';
 import { useContext, useState } from 'react';
 import { CartContext } from '../context/CartContext';
 import { getItemData } from '../itemList';
@@ -93,7 +93,18 @@ const Cart = () => {
                   items.length === 0 && 'hidden'
                 }`}
               >
-                {loading ? 'Loading...' : 'Checkout'}
+                {loading ? `Loading...` : 'Checkout'}
+                {loading && (
+                  <Icon
+                    path={mdiLoading}
+                    size={1}
+                    horizontal
+                    vertical
+                    rotate={100}
+                    color="white"
+                    spin
+                  />
+                )}
               </button>
             </div>
           </div>
